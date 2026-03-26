@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "users#hello"
+  resources :to_do_items
 end

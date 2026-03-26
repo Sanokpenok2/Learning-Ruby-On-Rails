@@ -1,0 +1,25 @@
+<h3> To Do List </h3>
+<% console %>
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Completed</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%@to_do_items.each do |t|%>
+      <tr>
+        <td> <%= t.title %></td>
+        <td> <%= t.completed %></td>
+        <td>
+          <%= link_to "Show", to_do_item_path(t) %>
+          <%= link_to "Edit", edit_to_do_item_path(t) %>
+          <%= link_to "Destroy", to_do_item_path(t), method: :delete, data: {confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
