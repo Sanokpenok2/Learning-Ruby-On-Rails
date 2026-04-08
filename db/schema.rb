@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_26_122502) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_08_181153) do
+  create_table "authors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "to_do_items", force: :cascade do |t|
+    t.integer "author_id"
     t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_to_do_items_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -24,4 +32,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_26_122502) do
     t.string "name"
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "to_do_items", "authors"
 end

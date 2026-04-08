@@ -3,9 +3,10 @@
 <table>
   <thead>
     <tr>
-      <td>Title</td>
-      <td>Completed</td>
-      <td>Actions</td>
+      <th>Title</th>
+      <th>Completed</th>
+      <th>Author</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -14,6 +15,7 @@
       <tr>
         <td> <%= t.title %></td>
         <td> <%= t.completed %></td>
+        <td> <%= t.author.name %></td>
         <td>
           <%= link_to "Show", to_do_item_path(t) %>
           <%= link_to "Edit", edit_to_do_item_path(t) %>
